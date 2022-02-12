@@ -1,0 +1,23 @@
+#!/bin/bash
+ocamlc -c types.mli
+ocamlc -c types.ml
+ocamllex lexer.mll
+ocamlyacc parser.mly
+ocamlc -c  parser.mli
+ocamlc -c  lexer.ml
+ocamlc -c  parser.ml
+ocamlc -c  radius.ml
+ocamlc -o  radius  lexer.cmo parser.cmo  radius.cmo
+
+#mv ./render6 ./
+
+#clean
+rm *.cmi
+rm *.cmo
+# rm *.cmx
+# rm *.o
+rm lexer.ml
+rm parser.ml
+rm parser.mli
+
+# ozan$ ls `ocamlc -where`/graphics*

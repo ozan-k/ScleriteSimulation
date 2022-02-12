@@ -1,0 +1,16 @@
+#!/bin/bash
+ocamlopt -c types.mli
+ocamlopt -c types.ml
+ocamllex lexer.mll
+ocamlyacc parser.mly
+ocamlopt -c  parser.mli
+ocamlopt -c  lexer.ml
+ocamlopt -c  parser.ml
+ocamlopt -c  stats.ml
+ocamlopt -o  stats  lexer.cmx parser.cmx  stats.cmx
+
+rm *.cmx
+rm *.o
+rm lexer.ml
+rm parser.ml
+rm parser.mli

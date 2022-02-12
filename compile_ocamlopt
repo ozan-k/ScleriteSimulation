@@ -1,0 +1,8 @@
+#!/bin/bash
+ocamlopt -c model.ml
+ocamlopt -o  model bigarray.cmxa model.cmx
+
+# clean
+rm *.cmi
+rm *.cmx
+rm *.o
